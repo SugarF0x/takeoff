@@ -1,5 +1,18 @@
 <template>
   <v-layout column>
+    <v-row justify="center">
+      <v-col cols="2">
+        <v-card>
+          <v-card-title>
+            test user data
+          </v-card-title>
+          <v-card-text>
+            <p>email: test@test.test</p>
+            <p>password: 123123123</p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
     <v-row align="center"
            justify="center"
     >
