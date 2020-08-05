@@ -28,7 +28,7 @@
 <script>
   export default {
     async asyncData(context) {
-      let response = await context.app.$axios.$get("/api/auth/index");
+      let response = await context.app.$axios.$get("/api/auth/getFriends");
       return { users: response }
     }
   };

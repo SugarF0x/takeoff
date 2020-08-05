@@ -1,4 +1,4 @@
-export async function index() {
+export async function getFriends() {
   return (await require("axios").get(`https://reqres.in/api/users?page=1`)).data
     .data.map(entry => {
     return {
