@@ -1,5 +1,11 @@
 <template>
   <v-layout row>
+    <v-row>
+      <v-spacer></v-spacer>
+      <v-col cols="1">
+        <v-btn @click="logout">Logout</v-btn>
+      </v-col>
+    </v-row>
     <v-row justify="center">
       <v-col col="12"
              md="5"
@@ -31,6 +37,12 @@
     async asyncData(context) {
       let response = await context.app.$axios.$get("/auth/getFriends");
       return { users: response }
+    },
+    methods: {
+      logout() {
+        this.$auth.logout();
+        window.location.reload();
+      }
     }
   };
 </script>
