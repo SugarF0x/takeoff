@@ -6,7 +6,7 @@ export default async (req, res, next) => {
   if (controller && method) {
     try {
       let api = require("../api/" + controller);
-      let result = await api[method](req.params);
+      let result = await api[method](req);
       res.end(JSON.stringify(result));
     } catch (err) {
       res.end(JSON.stringify({result: 0, message: err.code}))
