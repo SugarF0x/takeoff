@@ -39,12 +39,6 @@
             </v-form>
           </v-card-text>
           <v-card-actions>
-            <v-btn nuxt
-                   to="/register"
-            >
-              <v-icon left>mdi-account-plus</v-icon>
-              Register
-            </v-btn>
             <v-spacer></v-spacer>
             <v-btn :disabled="!isValid"
                    class="success darken-1"
