@@ -40,6 +40,7 @@ export default {
   ],
   serverMiddleware: [
     { path: "/api", handler: require("body-parser").json() },
+    { path: "/api", handler: require("cookie-parser")() },
     {
       path: "/api",
       handler: (req, res, next) => {
