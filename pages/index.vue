@@ -27,6 +27,7 @@
 
 <script>
   export default {
+    middleware: ['auth'],
     async asyncData(context) {
       let response = await context.app.$axios.$get("/auth/getFriends");
       return { users: response }

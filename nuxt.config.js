@@ -80,6 +80,37 @@ export default {
   axios: {
     baseURL: 'http://localhost:3000/api'
   },
+  auth: {
+    cookie: {
+      options: {
+        expires: 365
+      }
+    },
+    resetOnError: true,
+    redirect: {
+      login:    '/login', // User will be redirected to this path if login is required.
+      home:     '/',              // User will be redirect to this path after login. (rewriteRedirects will rewrite this path)
+      logout:   '/',              // User will be redirected to this path if after logout, current route is protected.
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url:          '/auth/login',
+            method:       'post',
+            propertyName: 'token'
+          },
+          logout: false,
+          user: {
+            url:          '/auth/me',
+            method:       'GET',
+            propertyName: 'user'
+          }
+        },
+        tokenRequired: true
+      }
+    },
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
