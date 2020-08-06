@@ -13,7 +13,7 @@
              xl="3"
 
              v-for="user in users"
-             :key="user.id"
+             :key="Math.random()"
       >
         <contact :user="user"
                  @deleteContact="del($event)"
@@ -25,7 +25,7 @@
              xl="3"
       >
         <contact isNew
-                 @addContact="add($event)"
+                 @addContact="users.push($event)"
         />
       </v-col>
     </v-row>
@@ -47,10 +47,6 @@
       logout() {
         this.$auth.logout();
         window.location.reload();
-      },
-      add(user) {
-        user.id = Math.floor(Math.random()*1000000);
-        this.users.push(user)
       },
       del(id) {
         delete this.users[this.users.findIndex(entry => {
