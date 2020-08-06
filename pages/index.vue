@@ -15,7 +15,16 @@
              v-for="user in users"
              :key="user.id"
       >
-        <contact :user="user"></contact>
+        <contact :user="user"/>
+      </v-col>
+      <v-col col="12"
+             md="5"
+             lg="4"
+             xl="3"
+      >
+        <contact isNew
+                 @addContact="add($event)"
+        />
       </v-col>
     </v-row>
   </v-layout>
@@ -36,6 +45,10 @@
       logout() {
         this.$auth.logout();
         window.location.reload();
+      },
+      add(user) {
+        user.id = Math.floor(Math.random()*1000000);
+        this.users.push(user)
       }
     }
   };
