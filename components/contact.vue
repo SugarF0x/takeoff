@@ -1,5 +1,15 @@
 <template>
   <v-card class="ma-3">
+    <v-btn fab
+           text
+           class="delete"
+           v-if="!isNew"
+           @click="$emit('deleteContact', user.id)"
+    >
+      <v-icon>
+        mdi-delete
+      </v-icon>
+    </v-btn>
     <div v-if="!isNew">
       <v-img height="200px"
              :src="user.avatar
@@ -65,5 +75,11 @@
 </script>
 
 <style scoped>
-
+  .delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    color: red;
+  }
 </style>

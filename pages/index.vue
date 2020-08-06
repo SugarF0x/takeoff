@@ -15,7 +15,9 @@
              v-for="user in users"
              :key="user.id"
       >
-        <contact :user="user"/>
+        <contact :user="user"
+                 @deleteContact="del($event)"
+        />
       </v-col>
       <v-col col="12"
              md="5"
@@ -49,6 +51,14 @@
       add(user) {
         user.id = Math.floor(Math.random()*1000000);
         this.users.push(user)
+      },
+      del(id) {
+        delete this.users[this.users.findIndex(entry => {
+          return entry.id === id;
+        })];
+        this.users = this.users.filter(entry => {
+          return entry !== undefined
+        })
       }
     }
   };
