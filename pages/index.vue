@@ -17,6 +17,7 @@
       >
         <contact :user="user"
                  @deleteContact="del($event)"
+                 @edit="put($event)"
         />
       </v-col>
       <v-col col="12"
@@ -55,6 +56,13 @@
         this.users = this.users.filter(entry => {
           return entry !== undefined
         })
+      },
+      put(user) {
+        let index = this.users.findIndex(entry => {
+          return entry.id === user.id;
+        });
+        this.users[index].full_name = user.full_name;
+        this.users[index].details   = user.details;
       }
     }
   };
